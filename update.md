@@ -50,5 +50,16 @@ This file tracks what needs to be done, what's currently in progress, and what's
 
 ---
 
+## Phase 5: Next Version (dev branch) 🔄 IN PROGRESS
+### Intelligent Layout Detection & Merging (`dev` branch)
+- [x] Created `dev` git branch
+- [ ] Analyze new challan PDF type (`2627-0017160814.pdf` where page 2 only has a few lines of overflow text vs full page 2)
+- [ ] Implement layout classifier in `src/processor/processor.py`:
+  - **Type A (Overflow / Few Lines)**: Page 2 has content height below a threshold (e.g., < 25% or < 200px at 150 DPI). Action: Append those few lines directly to the bottom of Page 1 on a single A4 sheet.
+  - **Type B (Halves / Full Page)**: Page 2 has substantial content (e.g., ~50% or more). Action: Stack Page 1 and Page 2 vertically in halves (current behavior).
+- [ ] Add comprehensive tests for both layout types.
+
+---
+
 ## Last Updated
-2026-09-05
+2026-09-06
